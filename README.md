@@ -8,3 +8,6 @@
   DB_PORT: 'your_db_port'
   JWT_ACCESS_SECRET='access_secret'
   JWT_REFRESH_SECRET='refresh_secret'
+
+
+  create folder 'storage' in root for files

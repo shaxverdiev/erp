@@ -1,7 +1,7 @@
 const tokenService = require("../services/token.service/tokens.service");
 const userModel = require('../models/user.model')
 const UserDTO = require("../dto/userDTO");
-const ApiError = require("../helpers/api_error");
+const ApiError = require("../helpers/api_error.helper");
 
   const newTokenService = async (refreshToken) => {
   if (!refreshToken) {

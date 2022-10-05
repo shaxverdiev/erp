@@ -10,16 +10,20 @@ const newTokenController = require("../controllers/new_token.controller");
 const infoController = require("../controllers/info.controller");
 const logoutController = require("../controllers/logout.controller");
 const uploadController = require("../controllers/upload.controller");
+const getFileController = require("../controllers/get_file.controller")
+const deleteFileController = require("../controllers/delete_file.controller")
+const updateFileController = require("../controllers/update_file.controller")
+const getFileListController = require("../controllers/get_file_list.controller")
 
 router.post("/signup", signupController);
 router.post("/signin", signinController);
 router.get("/signin/new_token", newTokenController);
 
 router.post("/upload", [authMW, uploadMW.single("file")], uploadController);
-// router.get('/file/:id', authMW)
-// router.put('/file/update/:id', authMW)
-// router.delete('/file/delete/:id', authMW)
-// router.get('/file/list', authMW)
+router.get('/file/:id', authMW, getFileController)
+router.delete('/file/delete/:id', authMW, deleteFileController)
+router.put('/file/update/:id',[authMW, uploadMW.single("file")], authMW, updateFileController)
+router.get('/file/all/list', authMW, getFileListController)
 // router.get('/file/download/:id', authMW)
 
 router.get("/info", authMW, infoController);

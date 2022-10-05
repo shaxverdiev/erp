@@ -1,4 +1,4 @@
-const {verifyToken} = require('../helpers/info_from_token')
+const {verifyToken} = require('../helpers/info_from_token.helper')
 
 const infoController = async (req, res, next) => {
     const ver = verifyToken(req);

@@ -1,4 +1,4 @@
-const ApiError = require("../helpers/api_error");
+const ApiError = require("../helpers/api_error.helper");
 const tokenService = require("../services/token.service/tokens.service");
 
 // этот миддларе проверяет авторизирован ли пользователь и можно ли ему получать данные
