@@ -1,9 +1,10 @@
+const ApiError = require('../helpers/api_error.helper');
 const signupService = require('../services/singup.service')
 
 const signupController = async (req, res, next) => {
   try {
-    const { login, password } = req.body;
-    const userData = await signupService(login, password);
+    const { login, password } = req.body;// вместо id я взял логин, потому что в бд есть уже
+    const userData = await signupService(login, password); 
 
     // отправляем на клиент в куках рефреш токен
     res.cookie("refreshToken", userData.refreshToken, {

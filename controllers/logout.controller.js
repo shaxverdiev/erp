@@ -1,11 +1,6 @@
-const logoutService = require("../services/logout.service");
+// const logoutService = require("../services/logout.service");
 const newTokenService = require('../services/new_token.service')
 
-
-/**
- * логика что и при обновлении токена но рефреш токен из кук будет удален
- * 
- */
 const logoutController = async (req, res, next) => {
   try {
     //достаем рефреш токен из куки

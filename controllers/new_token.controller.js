@@ -9,7 +9,7 @@ const newTokenController = async (req, res, next) => {
         maxAge: 30 * 24 * 60 * 60 * 1000,
         httpOnly: true,
       });
-      return res.json(userData);
+      return res.send("success");
     } catch (e) {
       next(e);
     }
