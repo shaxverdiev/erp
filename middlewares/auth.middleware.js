@@ -2,9 +2,10 @@ const ApiError = require("../helpers/api_error.helper");
 const tokenService = require("../services/token.service/tokens.service");
 
 // этот миддларе проверяет авторизирован ли пользователь и можно ли ему получать данные
-module.exports = function (req, res, next) {
+module.exports = function async (req, res, next) {
   try {
     const authorizationHeader = req.headers.authorization;
+
 
     if (!authorizationHeader) {
       return next(ApiError.UnAuthorizedError());

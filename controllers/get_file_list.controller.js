@@ -6,7 +6,7 @@ const getFileListController = async (req, res, next) => {
     const pag = await pagintaion(req, fileModel);
     return res.json(pag)
   } catch (e) {
-    console.log(e);
+    next(err)
   }
 };
 

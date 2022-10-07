@@ -29,7 +29,7 @@ const fileModel = sequelize.define(
     },
   },
   {
-    timestamps: false,
+    timestamps: true,
   }
 );
 

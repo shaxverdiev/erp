@@ -39,7 +39,7 @@ class TokenService {
     }
   }
 
-   validateAccessToken(token) {
+  validateAccessToken(token) {
     try {
       const userData = jwt.verify(token, process.env.JWT_ACCESS_SECRET);
       return userData;
@@ -69,10 +69,14 @@ class TokenService {
   }
 
   async removeToken(refreshToken) {
-    const tokenData = await tokenModel.destroy({
-      where: { refreshToken: refreshToken },
-    });
-    return tokenData;
+    try {
+      const tokenData = await tokenModel.destroy({
+        where: { refreshToken: refreshToken },
+      });
+      return tokenData;
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 

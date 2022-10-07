@@ -24,7 +24,7 @@ const ApiError = require("../helpers/api_error.helper");
   await tokenService.saveToken(userDTO.id, tokens.refreshToken);
 
   // возвращеем обновленне токены
-  return { ...tokens, user: userDTO };
+  return { ...tokens, user: userDTO.login };
 };
 
 module.exports = newTokenService;

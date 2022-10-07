@@ -1,5 +1,9 @@
 const infoController = async (req, res, next) => {
-    return res.json({user_id: req.user.id})
-}
+  try {
+    return res.json({ user_id: req.user.id });
+  } catch (err) {
+    next(err);
+  }
+};
 
-module.exports = infoController
+module.exports = infoController;

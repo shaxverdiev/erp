@@ -1,5 +1,5 @@
 // const logoutService = require("../services/logout.service");
-const newTokenService = require('../services/new_token.service')
+const newTokenService = require("../services/new_token.service");
 
 const logoutController = async (req, res, next) => {
   try {
@@ -9,9 +9,12 @@ const logoutController = async (req, res, next) => {
 
     //после этого очищаем куки от "refreshTokena"
     res.clearCookie("refreshToken");
-    return res.json({new_refresh_token: userData.refreshToken});
-  } catch (e) {
-    next(e);
+    return res.json({
+      message: "Вы вышли из системы",
+      new_refresh_token: userData.refreshToken,
+    });
+  } catch (err) {
+    next(err);
   }
 };
 
